@@ -101,12 +101,12 @@
 
 ## Cote client (Izaia)
 ### Option inclure frais de retrait lors de l'envoie
-* [] prendreFraisRetrait(valeur)
-* [] Afficher l'option dans la vue 
-* [] ajouter le frais de retrait a l'argent envoyer
+* [X] prendreFraisRetrait(valeur)
+* [X] Afficher l'option dans la vue 
+* [X] ajouter le frais de retrait a l'argent envoyer
 
 
-### Envoi multiple vers plusieurs numéro (Taarriq)
+### Envoi multiple vers plusieurs numéro (Izaia)
 * [] ajouter plusieur champ de numero au transfert(dynamique)
 * [] diviser le montant / nombre numero
 * [] faire le transfert pour chaque numero : transfertMultiple(tableau[numero], montant )
