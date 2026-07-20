@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title><?= $bareme ? 'Modifier' : 'Ajouter' ?> un barème</title>
-</head>
-<body>
-    <h1><?= $bareme ? 'Modifier' : 'Ajouter' ?> un barème</h1>
+<?= view('partials/operateur_header', ['pageTitle' => ($bareme ? 'Modifier' : 'Ajouter') . ' un barème', 'activeNav' => 'baremes']) ?>
 
-    <?php if (session()->getFlashdata('error')): ?>
-        <p style="color:red;"><?= session()->getFlashdata('error') ?></p>
-    <?php endif; ?>
+<div class="card" style="max-width:480px;">
+    <h2><?= $bareme ? 'Modifier' : 'Ajouter' ?> un barème</h2>
+    <p class="hint" style="margin-bottom:16px;">Définissez la tranche de montant et le frais appliqué.</p>
 
     <form method="post" action="<?= $bareme ? '/operateur/baremes/modifier/' . $bareme['id'] : '/operateur/baremes/ajouter' ?>">
-        <label>Type d'opération :</label>
-        <select name="type_operation_id" required>
-            <option value="">-- Choisir --</option>
-            <?php foreach ($typesOperation as $type): ?>
-                <option value="<?= esc($type['id']) ?>" <?= old('type_operation_id', $bareme['type_operation_id'] ?? '') == $type['id'] ? 'selected' : '' ?>><?= esc($type['libelle']) ?></option>
-            <?php endforeach; ?>
-        </select>
-        <br><br>
+        <div class="field">
+            <label>Type d'opération</label>
+            <select name="type_operation_id" required>
+                <option value="">-- Choisir --</option>
+                <?php foreach ($typesOperation as $type): ?>
+                    <option value="<?= esc($type['id']) ?>" <?= old('type_operation_id', $bareme['type_operation_id'] ?? '') == $type['id'] ? 'selected' : '' ?>><?= esc($type['libelle']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
 
-        <label>Valeur min :</label>
-        <input type="number" name="valeur_min" value="<?= old('valeur_min', $bareme['valeur_min'] ?? '') ?>" required>
-        <br><br>
+        <div class="field">
+            <label>Valeur min (Ar)</label>
+            <input type="number" name="valeur_min" value="<?= old('valeur_min', $bareme['valeur_min'] ?? '') ?>" required>
+        </div>
 
-        <label>Valeur max :</label>
-        <input type="number" name="valeur_max" value="<?= old('valeur_max', $bareme['valeur_max'] ?? '') ?>" required>
-        <br><br>
+        <div class="field">
+            <label>Valeur max (Ar)</label>
+            <input type="number" name="valeur_max" value="<?= old('valeur_max', $bareme['valeur_max'] ?? '') ?>" required>
+        </div>
 
-        <label>Frais :</label>
-        <input type="number" name="frais" value="<?= old('frais', $bareme['frais'] ?? '') ?>" required>
-        <br><br>
+        <div class="field">
+            <label>Frais (Ar)</label>
+            <input type="number" name="frais" value="<?= old('frais', $bareme['frais'] ?? '') ?>" required>
+        </div>
 
-        <button type="submit">Enregistrer</button>
-        <a href="/operateur/baremes">Annuler</a>
+        <div style="display:flex; gap:10px;">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a href="/operateur/baremes" class="btn btn-ghost">Annuler</a>
+        </div>
     </form>
-</body>
-</html>
+</div>
+
+<?= view('partials/operateur_footer') ?>

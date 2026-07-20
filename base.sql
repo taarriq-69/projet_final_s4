@@ -1,10 +1,25 @@
 PRAGMA foreign_keys = ON;
 
+CREATE TABLE operateur
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    libelle VARCHAR(250) NOT NULL
+);
 
 CREATE TABLE prefixe
 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    prefixe INTEGER NOT NULL UNIQUE
+    prefixe INTEGER NOT NULL UNIQUE,
+    operateur INTEGER NOT NULL,
+    FOREIGN KEY (operateur) REFERENCES operateur(id)
+);
+
+CREATE TABLE frais_autre_operateur
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    operateur INTEGER NOT NULL,
+    frais DECIMAL(10,2),
+    FOREIGN KEY (operateur) REFERENCES operateur(id)
 );
 
 
@@ -43,9 +58,11 @@ CREATE TABLE transactions
     valeur INTEGER NOT NULL,
     frais INTEGER NOT NULL DEFAULT 0,
     date_transaction TEXT NOT NULL,
+    operateur_id INTEGER NOT NULL DEFAULT 1,
 
     FOREIGN KEY(client_id) REFERENCES clients(id),
-    FOREIGN KEY(type_operation_id) REFERENCES type_operation(id)
+    FOREIGN KEY(type_operation_id) REFERENCES type_operation(id),
+    FOREIGN KEY(operateur_id) REFERENCES operateur(id)
 );
 
 
@@ -99,11 +116,25 @@ LEFT JOIN type_operation o
 ON t.type_operation_id=o.id
 GROUP BY c.id;
 
-INSERT INTO prefixe(prefixe)
+INSERT INTO operateur(libelle)
 VALUES
-(33),
-(37),
-(38);
+('Notre operateur'),('Autre operateur');
+
+INSERT INTO prefixe(prefixe, operateur)
+VALUES
+(33, 1),
+(37, 1),
+(38, 1);
+
+INSERT INTO prefixe(prefixe, operateur)
+VALUES
+(32, 2),
+(34, 2),
+(31, 2);
+
+INSERT INTO frais_autre_operateur(operateur, frais)
+VALUES
+(2, 5.5);
 
 
 -- Types d'opérations
@@ -151,15 +182,6 @@ VALUES
 ('Soa Ranaivo',372223344,'2026-07-20'),
 ('Mamy Razafy',383334455,'2026-07-20');
 
-
--- Comptes utilisateurs
-INSERT INTO login
-(client_id, username, password)
-VALUES
-(1,'jean','1234'),
-(2,'marie','1234'),
-(3,'andry','1234');
-
 INSERT INTO transactions
 (client_id, type_operation_id, valeur, frais, date_transaction)
 VALUES
@@ -189,4 +211,27 @@ SELECT
 FROM transactions t
 JOIN type_operation o
     ON t.type_operation_id = o.id
+WHERE t.operateur_id = 1
 GROUP BY o.id, o.libelle;
+
+CREATE VIEW vue_gain_autre_operateur AS
+SELECT
+    op.libelle AS operateur,
+    COUNT(*) AS nombre_transactions,
+    SUM(t.frais) AS gain_total
+FROM transactions t
+JOIN operateur op
+    ON t.operateur_id = op.id
+WHERE t.operateur_id != 1
+GROUP BY op.id, op.libelle;
+
+CREATE VIEW vue_montant_autre_operateur AS
+SELECT
+    op.libelle AS operateur,
+    COUNT(*) AS nombre_transactions,
+    SUM(t.valeur - t.frais) AS montant_total
+FROM transactions t
+JOIN operateur op
+    ON t.operateur_id = op.id
+WHERE t.operateur_id != 1
+GROUP BY op.id, op.libelle;
