@@ -114,3 +114,64 @@ LEFT JOIN type_operation o
 ON t.type_operation_id=o.id
 
 GROUP BY c.id;
+
+INSERT INTO prefixe(prefixe)
+VALUES
+(33),
+(37),
+(38);
+
+
+-- Types d'opérations
+INSERT INTO type_operation(libelle)
+VALUES
+('DEPOT'),
+('RETRAIT'),
+('TRANSFERT');
+
+
+-- Barème dépôt
+INSERT INTO bareme
+(valeur_min, valeur_max, frais, type_operation_id)
+VALUES
+(100,10000,50,1),
+(10001,50000,100,1),
+(50001,200000,200,1);
+
+
+-- Barème retrait
+INSERT INTO bareme
+(valeur_min, valeur_max, frais, type_operation_id)
+VALUES
+(100,10000,100,2),
+(10001,50000,200,2),
+(50001,200000,500,2);
+
+
+-- Barème transfert
+INSERT INTO bareme
+(valeur_min, valeur_max, frais, type_operation_id)
+VALUES
+(100,10000,100,3),
+(10001,50000,200,3),
+(50001,200000,500,3);
+
+
+-- Clients
+INSERT INTO clients
+(nom, numero, date_creation)
+VALUES
+('Rakoto Jean',371234567,'2026-07-20'),
+('Rabe Marie',382345678,'2026-07-20'),
+('Andry Dupont',331234567,'2026-07-20'),
+('Soa Ranaivo',372223344,'2026-07-20'),
+('Mamy Razafy',383334455,'2026-07-20');
+
+
+-- Comptes utilisateurs
+INSERT INTO login
+(client_id, username, password)
+VALUES
+(1,'jean','1234'),
+(2,'marie','1234'),
+(3,'andry','1234');
