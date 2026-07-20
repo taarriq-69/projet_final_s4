@@ -24,8 +24,6 @@
 ### Model
 * [] Creer l'OperationModel
 
-### Controller
-* [] Crud d'operation
 
 ### View
 - Pas encore

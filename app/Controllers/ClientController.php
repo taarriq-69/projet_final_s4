@@ -84,7 +84,30 @@ class ClientController extends BaseController
             return redirect()->to('/');
         }
 
-        return view('clients/historique');
+        $client = $this->clientModel->find($clientId);
+
+        $db = \Config\Database::connect();
+
+        $dateDebut = $this->request->getGet('date_debut');
+        $dateFin   = $this->request->getGet('date_fin');
+
+        $builder = $db->table('vue_historique_transaction')
+            ->where('numero', $client['numero']);
+
+        if ($dateDebut) {
+            $builder->where('date_transaction >=', $dateDebut);
+        }
+        if ($dateFin) {
+            $builder->where('date_transaction <=', $dateFin);
+        }
+
+        $transactions = $builder->get()->getResult();
+
+        return view('clients/historique', [
+            'transactions' => $transactions,
+            'date_debut'   => $dateDebut,
+            'date_fin'     => $dateFin,
+        ]);
     }
 
     public function faireUnRetrait()
