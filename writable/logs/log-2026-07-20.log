@@ -301,3 +301,136 @@ AND `valeur_max` >= :valeur_max:', [...], false)
 10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 12 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:00:48 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:00:52 --> ParseError: Unmatched '}'
+[Method: GET, Route: /]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:00:55 --> ParseError: Unmatched '}'
+[Method: GET, Route: /]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:01:11 --> ParseError: Unmatched '}'
+[Method: GET, Route: /]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:01:12 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:01:26 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:01:27 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:01:27 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:01:28 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:01:28 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 09:02:06 --> ParseError: Unmatched '}'
+[Method: GET, Route: home]
+in APPPATH/Models/TransactionModel.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/vendor/composer/../../app/Models/TransactionModel.php')
+ 2 APPPATH/Controllers/ClientController.php(18): Composer\Autoload\ClassLoader->loadClass('App\\Models\\TransactionModel')
+ 3 SYSTEMPATH/CodeIgniter.php(944): App\Controllers\ClientController->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+DEBUG - 2026-07-20 09:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
