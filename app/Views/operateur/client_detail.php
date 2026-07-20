@@ -2,16 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Historique</title>
+    <title>Transactions de <?= esc($client['nom']) ?></title>
 </head>
 <body>
-    <h1>Historique des transactions</h1>
+    <h1>Transactions de <?= esc($client['nom']) ?> (<?= esc($client['numero']) ?>)</h1>
 
-    <form method="get" action="/historique">
+    <form method="get" action="/operateur/clients/<?= esc($client['id']) ?>">
         <label>Date début :</label>
-        <input type="date" name="date_debut" value="<?= $date_debut ?? '' ?>">
+        <input type="date" name="date_debut" value="<?= esc($date_debut ?? '') ?>">
         <label>Date fin :</label>
-        <input type="date" name="date_fin" value="<?= $date_fin ?? '' ?>">
+        <input type="date" name="date_fin" value="<?= esc($date_fin ?? '') ?>">
         <button type="submit">Filtrer</button>
     </form>
 
@@ -27,10 +27,10 @@
             </tr>
             <?php foreach ($transactions as $t): ?>
                 <tr>
-                    <td><?= $t->date_transaction ?></td>
-                    <td><?= $t->operation ?></td>
-                    <td><?= $t->valeur ?></td>
-                    <td><?= $t->frais ?></td>
+                    <td><?= esc($t->date_transaction) ?></td>
+                    <td><?= esc($t->operation) ?></td>
+                    <td><?= esc($t->valeur) ?></td>
+                    <td><?= esc($t->frais) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
@@ -39,6 +39,6 @@
     <?php endif; ?>
 
     <br>
-    <a href="/home">Retour</a>
+    <a href="/operateur/clients">Retour</a>
 </body>
 </html>

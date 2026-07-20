@@ -18,19 +18,6 @@
 ### View
 - Pas encore
 
-
-## Type d'operation **(Taarriq)**
-
-### Model
-* [] Creer l'OperationModel
-
-### Controller
-* [] Crud d'operation
-
-### View
-- Pas encore
-
-
 ## Situation Gain via different frais
 
 ### Model
@@ -41,8 +28,8 @@
 * [X] filtreParOperation(id_operation , string rechercher)
 
 ### View **(Taarriq)**
-* [] afficher les total des gains par operation et gain global
-* [] Filtre par operation et recherche global
+* [x] afficher les total des gains par operation et gain global
+* [x] Filtre par operation et recherche global
 
 
 ## Situation des compte clients
@@ -51,12 +38,12 @@
 - Pas encore
 
 ### Controller **(Taarriq)**
-* [] listeClient()
-* [] voirTransactionClient(id_client)
+* [x] listeClient()
+* [x] voirTransactionClient(id_client)
 
 ### View **(Zax)**
-* [] Faire un tableau de liste de client
-* [] Faire la page de detail client ou il y a ses transaction
+* [x] Faire un tableau de liste de client
+* [x] Faire la page de detail client ou il y a ses transaction
 
 
 # Cote client
@@ -74,7 +61,7 @@
 - pas encore
 
 ### View **(Taarriq)**
-* [] Faire une page de login avec mots de passe mais pas encore de validation de mots de passe
+* [x] Faire une page de login avec mots de passe mais pas encore de validation de mots de passe
 
 
 ## Operation
