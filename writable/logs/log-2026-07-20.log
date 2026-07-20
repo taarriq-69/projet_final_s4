@@ -1,0 +1,303 @@
+ERROR - 2026-07-20 07:43:22 --> Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(164): SQLite3->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 5 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:43:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to prepare statement: no such table: bareme
+[Method: POST, Route: depot]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 2 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 4 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:43:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 174.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 4 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:43:22 --> [Caused by] SQLite3Exception: Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(164): SQLite3->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 5 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+ERROR - 2026-07-20 07:43:58 --> Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(164): SQLite3->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 5 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:43:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to prepare statement: no such table: bareme
+[Method: POST, Route: depot]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 2 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 4 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:43:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 174.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 4 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:43:58 --> [Caused by] SQLite3Exception: Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(164): SQLite3->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 5 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+ERROR - 2026-07-20 07:44:17 --> Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(164): SQLite3->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 5 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:44:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to prepare statement: no such table: bareme
+[Method: POST, Route: depot]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 2 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 4 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 5 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:44:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 174.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 4 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
+CRITICAL - 2026-07-20 07:44:17 --> [Caused by] SQLite3Exception: Unable to prepare statement: no such table: bareme
+in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
+ 1 SYSTEMPATH/Database/SQLite3/Connection.php(164): SQLite3->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\SQLite3\Connection->execute('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = 1
+AND `valeur_min` <= \'5000\'
+AND `valeur_max` >= \'5000\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `bareme`
+WHERE `type_operation_id` = :type_operation_id:
+AND `valeur_min` <= :valeur_min:
+AND `valeur_max` >= :valeur_max:', [...], false)
+ 5 APPPATH/Controllers/ClientController.php(23): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\ClientController->faireUnDepot()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')

@@ -61,17 +61,6 @@ CREATE TABLE transfert
     FOREIGN KEY(client_destination) REFERENCES clients(id)
 );
 
-
-CREATE TABLE login
-(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    client_id INTEGER NOT NULL UNIQUE,
-    username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
-
-    FOREIGN KEY(client_id) REFERENCES clients(id)
-);
-
 CREATE VIEW vue_historique_transaction AS
 SELECT
     t.id,
@@ -92,27 +81,22 @@ SELECT
     c.id,
     c.nom,
     c.numero,
-
     SUM(
         CASE
             WHEN o.libelle='DEPOT'
             THEN t.valeur
 
             WHEN o.libelle='RETRAIT'
-            THEN -t.valeur
+            THEN -(t.valeur + t.frais)
 
             ELSE 0
         END
     ) AS solde
-
 FROM clients c
-
 LEFT JOIN transactions t
 ON c.id=t.client_id
-
 LEFT JOIN type_operation o
 ON t.type_operation_id=o.id
-
 GROUP BY c.id;
 
 INSERT INTO prefixe(prefixe)
@@ -134,9 +118,9 @@ VALUES
 INSERT INTO bareme
 (valeur_min, valeur_max, frais, type_operation_id)
 VALUES
-(100,10000,50,1),
-(10001,50000,100,1),
-(50001,200000,200,1);
+(100,10000,0,1),
+(10001,50000,0,1),
+(50001,200000,0,1);
 
 
 -- Barème retrait
