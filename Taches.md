@@ -87,10 +87,10 @@
 * [x] faireUnDepot(id_client,date,valeur) **(Taarriq)**
 * [x] faireUnRetrait(id_client,date,valeur) **(Taarriq)**
 * [] faireUnTransfert(id_client,date,valeur) **(Zax)**
-* [] voirHistorique(id_operation,id_client,date) **(Zax)**
+* [x] voirHistorique(id_operation,id_client,date) **(Taarriq)**
 
 ### View
 * [x] Page pour depot **(Taarriq)**
 * [] Page pour transfert **(Zax)**
 * [x] Page pour retrait  **(Taarriq)**
-* [] Page pour voir les historiques avec filtre **(Zax)**
+* [x] Page pour voir les historiques avec filtre **(Taarriq)**

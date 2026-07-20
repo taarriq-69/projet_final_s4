@@ -434,3 +434,9 @@ in APPPATH/Models/TransactionModel.php on line 8.
  8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  9 SYSTEMPATH/rewrite.php(44): require_once('/Users/mac/Documents/Etude/S4/SI/projet_final_s4/public/index.php')
 DEBUG - 2026-07-20 09:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-07-20 09:04:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-07-20 09:04:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-07-20 09:04:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-07-20 09:04:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-07-20 09:04:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-07-20 09:04:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
