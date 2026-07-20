@@ -62,7 +62,26 @@ class ClientController extends BaseController
 
         $client = $this->clientModel->find($clientId);
 
-        return view('client_home', ['client' => $client]);
+        $db = \Config\Database::connect();
+
+        $soldeRow = $db->table('vue_solde_client')
+            ->where('id', $clientId)
+            ->get()
+            ->getRow();
+
+        $activitesRecentes = $db->table('vue_historique_transaction')
+            ->where('numero', $client['numero'])
+            ->orderBy('date_transaction', 'DESC')
+            ->orderBy('id', 'DESC')
+            ->limit(3)
+            ->get()
+            ->getResult();
+
+        return view('client_home', [
+            'client'             => $client,
+            'solde'              => $soldeRow ? $soldeRow->solde : 0,
+            'activitesRecentes'  => $activitesRecentes,
+        ]);
     }
 
     public function faireUnTransfert()
@@ -212,7 +231,10 @@ class ClientController extends BaseController
         $fraisRetraitInclus = $avecFraisRetrait ? $this->prendreFraisRetrait($valeur) : 0;
         $commission         = $memeOperateur ? 0 : $this->getCommissionAutreOperateur($operateurDestinataire, $valeur);
 
-        $totalFrais   = $fraisTransfert + $fraisRetraitInclus + $commission;
+        // La commission n'est PAS un gain pour nous : elle part avec le montant
+        // vers l'autre opérateur. Seuls fraisTransfert/fraisRetraitInclus restent chez nous.
+        $notreGain    = $fraisTransfert + $fraisRetraitInclus;
+        $totalFrais   = $notreGain + $commission;
         $montantTotal = $valeur + $totalFrais;
 
         if (!$this->verifierSolde($clientId, $montantTotal)) {
@@ -223,12 +245,15 @@ class ClientController extends BaseController
         $db->transStart();
 
         // Débit chez l'expéditeur : valeur transférée + tous les frais (retrait/commission)
+        // operateur_id identifie l'opérateur du destinataire (1 = notre opérateur)
+        // frais = uniquement notre gain (commission exclue, elle part vers l'autre opérateur)
         $this->transactionModel->insert([
             'client_id'         => $clientId,
             'type_operation_id' => 2, // RETRAIT
             'valeur'            => $montantTotal,
-            'frais'             => $totalFrais,
+            'frais'             => $notreGain,
             'date_transaction'  => date('Y-m-d'),
+            'operateur_id'      => $operateurDestinataire,
         ]);
 
         if ($destinataire) {

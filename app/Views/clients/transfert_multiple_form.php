@@ -1,56 +1,44 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Transfert multiple</title>
-</head>
-<body>
-    <h1>Envoyer vers plusieurs numéros</h1>
+<?= view('partials/client_header', ['pageTitle' => 'Envoi multiple', 'backUrl' => '/home', 'showBrand' => false]) ?>
 
-    <?php if (session()->getFlashdata('message')): ?>
-        <p style="color:green;"><?= session()->getFlashdata('message') ?></p>
-    <?php endif; ?>
-
-    <?php if (session()->getFlashdata('error')): ?>
-        <p style="color:red;"><?= session()->getFlashdata('error') ?></p>
-    <?php endif; ?>
+<div class="card">
+    <p class="hint" style="margin-bottom:16px;">Le montant est réparti à parts égales entre tous les numéros. Tous les numéros doivent appartenir au même opérateur.</p>
 
     <form method="post" action="/transfert-multiple">
         <div id="numeros-container">
-            <div class="ligne-numero">
-                <label>Numero :</label>
-                <input type="text" name="numeros[]" required>
+            <div class="ligne-numero field" style="display:flex; gap:8px; align-items:center;">
+                <input type="text" name="numeros[]" placeholder="Numéro" required style="flex:1;">
             </div>
         </div>
 
-        <button type="button" id="ajouter-numero">+ Ajouter un numéro</button>
+        <button type="button" id="ajouter-numero" class="btn btn-ghost btn-sm" style="margin-bottom:16px;">+ Ajouter un numéro</button>
 
-        <br><br>
-        <label>Montant  :</label>
-        <input type="number" name="montant" min="1" required>
+        <div class="field">
+            <label>Montant total (Ar)</label>
+            <input type="number" name="montant" min="1" required>
+        </div>
 
-        <br>
-        <button type="submit">Transférer</button>
+        <button type="submit" class="btn btn-primary btn-block">Transférer</button>
     </form>
+</div>
 
-    <br>
+<p class="hint" style="text-align:center;">
     <a href="/transfert">Transfert simple</a>
-    <br>
-    <a href="/home">Retour</a>
+</p>
 
-    <script>
-        document.getElementById('ajouter-numero').addEventListener('click', function () {
-            const container = document.getElementById('numeros-container');
-            const ligne = document.createElement('div');
-            ligne.className = 'ligne-numero';
-            ligne.innerHTML = '<label>Numéro :</label> <input type="text" name="numeros[]" required> ' +
-                '<button type="button" class="retirer-numero">−</button>';
-            container.appendChild(ligne);
+<script>
+    document.getElementById('ajouter-numero').addEventListener('click', function () {
+        const container = document.getElementById('numeros-container');
+        const ligne = document.createElement('div');
+        ligne.className = 'ligne-numero field';
+        ligne.style.cssText = 'display:flex; gap:8px; align-items:center;';
+        ligne.innerHTML = '<input type="text" name="numeros[]" placeholder="Numéro" required style="flex:1;">' +
+            '<button type="button" class="btn btn-danger btn-sm retirer-numero">−</button>';
+        container.appendChild(ligne);
 
-            ligne.querySelector('.retirer-numero').addEventListener('click', function () {
-                ligne.remove();
-            });
+        ligne.querySelector('.retirer-numero').addEventListener('click', function () {
+            ligne.remove();
         });
-    </script>
-</body>
-</html>
+    });
+</script>
+
+<?= view('partials/client_footer') ?>

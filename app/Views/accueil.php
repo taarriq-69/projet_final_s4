@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Orange Money - Accueil</title>
-</head>
-<body>
-    <h1>Orange Money</h1>
+<?= view('partials/client_header', ['pageTitle' => 'AriaryPay', 'backUrl' => null]) ?>
 
-    <?php if (session()->getFlashdata('error')): ?>
-        <p style="color:red;"><?= session()->getFlashdata('error') ?></p>
-    <?php endif; ?>
+<div class="admin-link">
+    <a href="/operateur" class="btn btn-ghost btn-sm">Admin</a>
+</div>
 
+<div style="text-align:center; margin-bottom:20px;">
+    <div class="op-logo-mark" style="margin:0 auto 12px;"></div>
+    <p class="hint">Votre numéro est votre compte. Aucune inscription requise.</p>
+</div>
+
+<div class="card">
     <form method="post" action="/">
-        <label>Numéro :</label>
-        <input type="text" name="numero" placeholder="XX XX XXX XX" required maxlength="9">
-        <br><br>
-        <button type="submit">Valider</button>
+        <div class="field">
+            <label>Numéro de téléphone</label>
+            <div class="input-group">
+                <span class="prefix">+261</span>
+                <input type="text" name="numero" placeholder="XX XX XXX XX" required maxlength="9" autofocus>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Valider</button>
     </form>
-</body>
-</html>
+</div>
+
+<?= view('partials/client_footer') ?>

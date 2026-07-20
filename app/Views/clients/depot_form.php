@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Dépôt</title>
-</head>
-<body>
-    <h1>Faire un dépôt</h1>
+<?= view('partials/client_header', ['pageTitle' => 'Dépôt', 'backUrl' => '/home', 'showBrand' => false]) ?>
 
-    <?php if (session()->getFlashdata('message')): ?>
-        <p style="color:green;"><?= session()->getFlashdata('message') ?></p>
-    <?php endif; ?>
-
+<div class="card">
     <form method="post" action="/depot">
-        <label>Montant :</label>
-        <input type="number" name="valeur" required>
-        <br><br>
-        <button type="submit">Déposer</button>
+        <div class="field">
+            <label>Montant à déposer (Ar)</label>
+            <input type="number" name="valeur" min="1" required autofocus>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Déposer</button>
     </form>
-</body>
-</html>
+</div>
+
+<?= view('partials/client_footer') ?>
