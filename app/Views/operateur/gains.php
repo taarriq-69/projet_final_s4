@@ -47,6 +47,6 @@
     <?php endif; ?>
 
     <br>
-    <a href="/home">Retour</a>
+    <a href="/operateur">Retour</a>
 </body>
 </html>

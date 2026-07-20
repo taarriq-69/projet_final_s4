@@ -51,11 +51,11 @@
 ## Login
 
 ### Model **(Zax)**
-* [] ClientModel
-    * [] regles de validation
-        * [] prefixe valide (customRules)
+* [x] ClientModel
+    * [x] regles de validation
+        * [x] prefixe valide (customRules)
         * [x] 10 chiffres minimum maximum
-        * [] unique
+        * [x] unique
 
 ### Controller
 - pas encore
@@ -70,14 +70,14 @@
 - pas encore
 
 ### Controller
-* [] voirSolde(vue calcul_solde) **(Zax)**
+* [x] voirSolde(vue calcul_solde) **(Zax)**
 * [x] faireUnDepot(id_client,date,valeur) **(Taarriq)**
 * [x] faireUnRetrait(id_client,date,valeur) **(Taarriq)**
-* [] faireUnTransfert(id_client,date,valeur) **(Zax)**
+* [x] faireUnTransfert(id_client,date,valeur) **(Zax)**
 * [x] voirHistorique(id_operation,id_client,date) **(Taarriq)**
 
 ### View
 * [x] Page pour depot **(Taarriq)**
-* [] Page pour transfert **(Zax)**
+* [x] Page pour transfert **(Zax)**
 * [x] Page pour retrait  **(Taarriq)**
 * [x] Page pour voir les historiques avec filtre **(Taarriq)**
