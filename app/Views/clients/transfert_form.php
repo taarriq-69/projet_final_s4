@@ -11,8 +11,21 @@
         <p style="color:green;"><?= session()->getFlashdata('message') ?></p>
     <?php endif; ?>
 
-    <p>Fonctionnalité à venir.</p>
+    <?php if (session()->getFlashdata('error')): ?>
+        <p style="color:red;"><?= session()->getFlashdata('error') ?></p>
+    <?php endif; ?>
 
+    <form method="post" action="/transfert">
+        <label>Numéro du destinataire :</label>
+        <input type="text" name="numero_destinataire" required>
+        <br><br>
+        <label>Montant :</label>
+        <input type="number" name="valeur" min="1" required>
+        <br><br>
+        <button type="submit">Transférer</button>
+    </form>
+
+    <br>
     <a href="/home">Retour</a>
 </body>
 </html>

@@ -13,3 +13,4 @@ $routes->post('/retrait', 'ClientController::faireUnRetrait');
 $routes->get('/transfert', 'ClientController::faireUnTransfert');
 $routes->post('/transfert', 'ClientController::faireUnTransfert');
 $routes->get('/historique', 'ClientController::voirHistorique');
+$routes->get('/solde', 'ClientController::voirSolde');

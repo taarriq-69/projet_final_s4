@@ -9,6 +9,7 @@ class TransactionController extends BaseController
 {
     public function index()
     {
+        return view('operateur/transaction');
     }
 
     public function totalGainParOperation($operation){
@@ -34,6 +35,7 @@ class TransactionController extends BaseController
         $data['transactions'] = $transaction->find($id_operation);
         return redirect()->back()->with('transactions',$data);
     }
+
 
     
 }
