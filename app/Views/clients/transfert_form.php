@@ -22,6 +22,9 @@
         <label>Montant :</label>
         <input type="number" name="valeur" min="1" required>
         <br><br>
+        <label for="fraisRetrait">Envoyer avec frais de retrait : </label>
+        <input type="checkbox" name="fraisRetrait" id="fraisRetrait" value="1">
+        <br><br>
         <button type="submit">Transférer</button>
     </form>
 

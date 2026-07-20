@@ -105,13 +105,14 @@
 
 ## Cote client (Izaia)
 ### Option inclure frais de retrait lors de l'envoie
+
 * [] prendreFraisRetrait(valeur)
 * [] Afficher l'option dans la vue 
 * [] ajouter le frais de retrait a l'argent envoyer
 * [] Désactiver l'option si le destinataire est un autre opérateur (pas de frais de retrait dans ce cas)
 
 
-### Envoi multiple vers plusieurs numéro (Taarriq)
+### Envoi multiple vers plusieurs numéro (Izaia)
 * [] ajouter plusieur champ de numero au transfert(dynamique)
 * [] Vérifier que tous les numéros sont du même opérateur, sinon rejeter
 * [] diviser le montant / nombre numero

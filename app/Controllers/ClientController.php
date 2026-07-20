@@ -72,6 +72,9 @@ class ClientController extends BaseController
             $numeroDest = $this->request->getPost('numero_destinataire');
             $valeur     = (int) $this->request->getPost('valeur');
 
+            if ($this->request->getPost('fraisRetrait') === "1") {
+                $valeur +=  $this->prendreFraisRetrait($valeur); 
+            }
             if (!$clientId) {
                 return redirect()->to('/');
             }
@@ -291,5 +294,9 @@ class ClientController extends BaseController
         return $solde >= $valeur;
     }
 
-  
+    public function prendreFraisRetrait($montant){
+        $frais = $this->calculerFrais(2, $montant); // 2 correspond à l'opération de retrait
+        return  $frais;
+    }
+
 }
