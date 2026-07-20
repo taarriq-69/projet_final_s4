@@ -13,6 +13,7 @@
         <li><a href="/solde">Solde</a></li>
         <li><a href="/retrait">Retrait</a></li>
         <li><a href="/transfert">Transfert</a></li>
+        <li><a href="/transfert-multiple">Transfert multiple</a></li>
         <li><a href="/historique">Historique</a></li>
     </ul>
 </body>
