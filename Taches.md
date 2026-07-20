@@ -4,13 +4,13 @@
 
 ### Model
 - PrefixeModel :
-    * [] regles de validation
-        * [] 3 chiffre(min,max)
-        * [] 2 premier chiffre 03 (CustomRules)
-        * [] unique
+    * [X] regles de validation
+        * [X] 3 chiffre(min,max)
+        * [X] 2 premier chiffre 03 (CustomRules)
+        * [X] unique
 
 - CustomRules :
-    * [] validerPrefixe()
+    * [X] validerPrefixe()
 
 ### Controller
 - Pas encore
@@ -37,8 +37,8 @@
 - Pas de Model
 
 ### Controller **(Zax)**
-* [] Creer vue calcul_total_frais
-* [] filtreParOperation(id_operation , string rechercher)
+* [X] Creer vue calcul_total_frais
+* [X] filtreParOperation(id_operation , string rechercher)
 
 ### View **(Taarriq)**
 * [] afficher les total des gains par operation et gain global
