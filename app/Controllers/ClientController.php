@@ -68,11 +68,120 @@ class ClientController extends BaseController
     public function faireUnTransfert()
     {
         if ($this->request->getMethod() === 'POST') {
+            $clientId   = session()->get('client_id');
+            $numeroDest = $this->request->getPost('numero_destinataire');
+            $valeur     = (int) $this->request->getPost('valeur');
+
+            if (!$clientId) {
+                return redirect()->to('/');
+            }
+
+            if (empty($numeroDest) || $valeur <= 0) {
+                return redirect()->back()
+                    ->with('error', 'Veuillez renseigner un numéro de destinataire et un montant valide.');
+            }
+
+            // Recherche du destinataire par son numéro
+            $destinataire = $this->clientModel
+                ->where('numero', $numeroDest)
+                ->first();
+
+            if (!$destinataire) {
+                return redirect()->back()
+                    ->with('error', "Ce numéro de destinataire n'est pas enregistré.");
+            }
+
+            if ((int) $destinataire['id'] === (int) $clientId) {
+                return redirect()->back()
+                    ->with('error', 'Vous ne pouvez pas effectuer un transfert vers votre propre compte.');
+            }
+
+            // Frais de transfert calculés sur la base du barème TRANSFERT (id 3)
+            $frais        = $this->calculerFrais(3, $valeur);
+            $montantTotal = $valeur + $frais;
+
+            // Le donneur doit disposer de la valeur transférée + les frais
+            if (!$this->verifierSolde($clientId, $montantTotal)) {
+                return redirect()->back()
+                    ->with('error', 'Solde insuffisant pour effectuer ce transfert.');
+            }
+
+            $db = \Config\Database::connect();
+            $db->transStart();
+
+            // Débit chez le donneur : valeur transférée + frais (enregistré comme un retrait)
+            $this->transactionModel->insert([
+                'client_id'         => $clientId,
+                'type_operation_id' => 2, // RETRAIT
+                'valeur'            => $montantTotal,
+                'frais'             => $frais,
+                'date_transaction'  => date('Y-m-d'),
+            ]);
+
+            // Crédit chez le receveur : seulement la valeur transférée, sans les frais
+            $this->transactionModel->insert([
+                'client_id'         => $destinataire['id'],
+                'type_operation_id' => 1, // DEPOT
+                'valeur'            => $valeur,
+                'frais'             => 0,
+                'date_transaction'  => date('Y-m-d'),
+            ]);
+
+            // Traçabilité du transfert
+            $db->table('transfert')->insert([
+                'client_source'      => $clientId,
+                'client_destination' => $destinataire['id'],
+                'valeur'             => $valeur,
+                'date_transfert'     => date('Y-m-d'),
+            ]);
+
+            $db->transComplete();
+
+            if (!$db->transStatus()) {
+                return redirect()->back()
+                    ->with('error', "Une erreur est survenue lors du transfert. Veuillez réessayer.");
+            }
+
             return redirect()->to('/transfert')
-                ->with('message', 'Fonctionnalité à venir.');
+                ->with('message', "Transfert de {$valeur} effectué avec succès vers {$destinataire['nom']} ({$frais} de frais).");
         }
 
         return view('clients/transfert_form');
+    }
+
+    public function voirSolde()
+    {
+        $clientId = session()->get('client_id');
+
+        if (!$clientId) {
+            return redirect()->to('/');
+        }
+
+        $db = \Config\Database::connect();
+
+        // Solde total du client
+        $soldeRow = $db->table('vue_solde_client')
+            ->where('id', $clientId)
+            ->get()
+            ->getRow();
+
+        $solde = $soldeRow ? $soldeRow->solde : 0;
+
+        // Liste de toutes les transactions du client (dépôts, retraits, transferts)
+        $transactions = $db->table('vue_historique_transaction')
+            ->where('numero', $this->clientModel->find($clientId)['numero'])
+            ->orderBy('date_transaction', 'DESC')
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->getResultArray();
+
+        $client = $this->clientModel->find($clientId);
+
+        return view('clients/solde', [
+            'client'       => $client,
+            'solde'        => $solde,
+            'transactions' => $transactions,
+        ]);
     }
 
     public function voirHistorique()
@@ -181,4 +290,6 @@ class ClientController extends BaseController
 
         return $solde >= $valeur;
     }
+
+  
 }

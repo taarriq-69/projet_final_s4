@@ -10,6 +10,7 @@
 
     <ul>
         <li><a href="/depot">Dépôt</a></li>
+        <li><a href="/solde">Solde</a></li>
         <li><a href="/retrait">Retrait</a></li>
         <li><a href="/transfert">Transfert</a></li>
         <li><a href="/historique">Historique</a></li>
