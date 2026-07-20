@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class TransactionModel extends Model
-}
+{
     protected $table            = 'transactions';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
