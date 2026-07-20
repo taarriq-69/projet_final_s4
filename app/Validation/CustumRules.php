@@ -4,7 +4,7 @@ namespace App\Validation;
 
 use App\Models\PrefixeModel;
 
-class ClientRules
+class CustumRules
 {
     public function valide_prefixe(string $str, ?string &$error = null): bool
     {
