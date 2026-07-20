@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\GainModel;
+use App\Models\GainAutreOperateurModel;
+use App\Models\MontantAutreOperateurModel;
 use App\Models\ClientsModel;
 class TransactionController extends BaseController
 {
@@ -31,12 +33,24 @@ class TransactionController extends BaseController
             return true;
         });
 
+        $gainAutreOperateurModel = new GainAutreOperateurModel();
+
         return view('operateur/gains', [
-            'gains'      => $gains,
-            'gainGlobal' => array_sum(array_column($tousLesGains, 'gain_total')),
-            'operations' => array_column($tousLesGains, 'type_operation'),
-            'operation'  => $operation,
-            'recherche'  => $recherche,
+            'gains'                 => $gains,
+            'gainGlobal'            => array_sum(array_column($tousLesGains, 'gain_total')),
+            'operations'            => array_column($tousLesGains, 'type_operation'),
+            'operation'             => $operation,
+            'recherche'             => $recherche,
+            'gainsAutresOperateurs' => $gainAutreOperateurModel->findAll(),
+        ]);
+    }
+
+    public function montantsAEnvoyer()
+    {
+        $montantAutreOperateurModel = new MontantAutreOperateurModel();
+
+        return view('operateur/montants_operateurs', [
+            'montants' => $montantAutreOperateurModel->findAll(),
         ]);
     }
 

@@ -1,34 +1,33 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Clients - Opérateur</title>
-</head>
-<body>
-    <h1>Liste des clients</h1>
+<?= view('partials/operateur_header', ['pageTitle' => 'Comptes clients', 'activeNav' => 'clients']) ?>
+
+<div class="card">
+    <h2>Liste des clients</h2>
+    <p class="hint" style="margin-bottom:16px;"><?= count($clients ?? []) ?> client(s) enregistré(s).</p>
 
     <?php if (!empty($clients)): ?>
-        <table border="1" cellpadding="5" cellspacing="0">
-            <tr>
-                <th>Nom</th>
-                <th>Numéro</th>
-                <th>Date de création</th>
-                <th></th>
-            </tr>
-            <?php foreach ($clients as $c): ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= esc($c['nom']) ?></td>
-                    <td><?= esc($c['numero']) ?></td>
-                    <td><?= esc($c['date_creation']) ?></td>
-                    <td><a href="/operateur/clients/<?= esc($c['id']) ?>">Voir les transactions</a></td>
+                    <th>Nom</th>
+                    <th>Numéro</th>
+                    <th>Date de création</th>
+                    <th></th>
                 </tr>
-            <?php endforeach; ?>
+            </thead>
+            <tbody>
+                <?php foreach ($clients as $c): ?>
+                    <tr>
+                        <td><?= esc($c['nom']) ?></td>
+                        <td class="mono"><?= esc($c['numero']) ?></td>
+                        <td><?= esc($c['date_creation']) ?></td>
+                        <td><a href="/operateur/clients/<?= esc($c['id']) ?>" class="btn btn-ghost btn-sm">Voir les transactions</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     <?php else: ?>
-        <p>Aucun client trouvé.</p>
+        <p class="hint">Aucun client trouvé.</p>
     <?php endif; ?>
+</div>
 
-    <br>
-    <a href="/operateur">Retour</a>
-</body>
-</html>
+<?= view('partials/operateur_footer') ?>

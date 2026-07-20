@@ -58,9 +58,11 @@ CREATE TABLE transactions
     valeur INTEGER NOT NULL,
     frais INTEGER NOT NULL DEFAULT 0,
     date_transaction TEXT NOT NULL,
+    operateur_id INTEGER NOT NULL DEFAULT 1,
 
     FOREIGN KEY(client_id) REFERENCES clients(id),
-    FOREIGN KEY(type_operation_id) REFERENCES type_operation(id)
+    FOREIGN KEY(type_operation_id) REFERENCES type_operation(id),
+    FOREIGN KEY(operateur_id) REFERENCES operateur(id)
 );
 
 
@@ -209,4 +211,27 @@ SELECT
 FROM transactions t
 JOIN type_operation o
     ON t.type_operation_id = o.id
+WHERE t.operateur_id = 1
 GROUP BY o.id, o.libelle;
+
+CREATE VIEW vue_gain_autre_operateur AS
+SELECT
+    op.libelle AS operateur,
+    COUNT(*) AS nombre_transactions,
+    SUM(t.frais) AS gain_total
+FROM transactions t
+JOIN operateur op
+    ON t.operateur_id = op.id
+WHERE t.operateur_id != 1
+GROUP BY op.id, op.libelle;
+
+CREATE VIEW vue_montant_autre_operateur AS
+SELECT
+    op.libelle AS operateur,
+    COUNT(*) AS nombre_transactions,
+    SUM(t.valeur - t.frais) AS montant_total
+FROM transactions t
+JOIN operateur op
+    ON t.operateur_id = op.id
+WHERE t.operateur_id != 1
+GROUP BY op.id, op.libelle;

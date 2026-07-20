@@ -19,6 +19,7 @@ $routes->get('/historique', 'ClientController::voirHistorique');
 // Espace opérateur
 $routes->get('/operateur', 'TransactionController::index');
 $routes->get('/operateur/gains', 'TransactionController::gains');
+$routes->get('/operateur/montants-a-envoyer', 'TransactionController::montantsAEnvoyer');
 $routes->get('/operateur/clients', 'TransactionController::listeClient');
 $routes->get('/operateur/clients/(:num)', 'TransactionController::voirTransactionClient/$1');
 $routes->get('/operateur/baremes', 'BaremeController::index');

@@ -1,44 +1,50 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Transactions de <?= esc($client['nom']) ?></title>
-</head>
-<body>
-    <h1>Transactions de <?= esc($client['nom']) ?> (<?= esc($client['numero']) ?>)</h1>
+<?= view('partials/operateur_header', ['pageTitle' => 'Transactions de ' . $client['nom'], 'activeNav' => 'clients']) ?>
 
-    <form method="get" action="/operateur/clients/<?= esc($client['id']) ?>">
-        <label>Date début :</label>
-        <input type="date" name="date_debut" value="<?= esc($date_debut ?? '') ?>">
-        <label>Date fin :</label>
-        <input type="date" name="date_fin" value="<?= esc($date_fin ?? '') ?>">
-        <button type="submit">Filtrer</button>
+<div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <div>
+            <h2><?= esc($client['nom']) ?></h2>
+            <p class="hint mono"><?= esc($client['numero']) ?></p>
+        </div>
+        <a href="/operateur/clients" class="btn btn-ghost btn-sm">← Tous les clients</a>
+    </div>
+
+    <form method="get" action="/operateur/clients/<?= esc($client['id']) ?>" style="display:flex; gap:12px; align-items:end; flex-wrap:wrap; margin-bottom:18px;">
+        <div class="field" style="margin-bottom:0;">
+            <label>Date début</label>
+            <input type="date" name="date_debut" value="<?= esc($date_debut ?? '') ?>">
+        </div>
+        <div class="field" style="margin-bottom:0;">
+            <label>Date fin</label>
+            <input type="date" name="date_fin" value="<?= esc($date_fin ?? '') ?>">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrer</button>
     </form>
 
-    <br>
-
     <?php if (!empty($transactions)): ?>
-        <table border="1" cellpadding="5" cellspacing="0">
-            <tr>
-                <th>Date</th>
-                <th>Opération</th>
-                <th>Valeur</th>
-                <th>Frais</th>
-            </tr>
-            <?php foreach ($transactions as $t): ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= esc($t->date_transaction) ?></td>
-                    <td><?= esc($t->operation) ?></td>
-                    <td><?= esc($t->valeur) ?></td>
-                    <td><?= esc($t->frais) ?></td>
+                    <th>Date</th>
+                    <th>Opération</th>
+                    <th class="num">Valeur</th>
+                    <th class="num">Frais</th>
                 </tr>
-            <?php endforeach; ?>
+            </thead>
+            <tbody>
+                <?php foreach ($transactions as $t): ?>
+                    <tr>
+                        <td><?= esc($t->date_transaction) ?></td>
+                        <td><span class="badge <?= badge_operation($t->operation) ?>"><?= esc($t->operation) ?></span></td>
+                        <td class="num"><?= montant_ar($t->valeur) ?></td>
+                        <td class="num"><?= montant_ar($t->frais) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     <?php else: ?>
-        <p>Aucune transaction trouvée.</p>
+        <p class="hint">Aucune transaction trouvée.</p>
     <?php endif; ?>
+</div>
 
-    <br>
-    <a href="/operateur/clients">Retour</a>
-</body>
-</html>
+<?= view('partials/operateur_footer') ?>
