@@ -61,17 +61,6 @@ CREATE TABLE transfert
     FOREIGN KEY(client_destination) REFERENCES clients(id)
 );
 
-
-CREATE TABLE login
-(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    client_id INTEGER NOT NULL UNIQUE,
-    username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
-
-    FOREIGN KEY(client_id) REFERENCES clients(id)
-);
-
 CREATE VIEW vue_historique_transaction AS
 SELECT
     t.id,

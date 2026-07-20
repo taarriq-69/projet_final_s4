@@ -14,9 +14,6 @@
     <?php endif; ?>
 
     <form method="post" action="/retrait">
-        <label>ID client :</label>
-        <input type="number" name="client_id" required>
-        <br><br>
         <label>Montant :</label>
         <input type="number" name="valeur" required>
         <br><br>
