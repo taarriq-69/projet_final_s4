@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => '',
         'password'     => '',
-        'database'     => 'projet-s4',
+        'database'     => APPPATH . '../writable/database/projet-s4.db',
         'DBDriver'     => 'SQLite3',
         'DBPrefix'     => '',
         'pConnect'     => false,
