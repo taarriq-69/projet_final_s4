@@ -10,7 +10,7 @@ class TransactionModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['id', 'client_id', 'type_operation_id', 'valeur', 'frais', 'date_transaction'];
+    protected $allowedFields    = ['id', 'client_id', 'type_operation_id', 'valeur', 'frais', 'date_transaction', 'operateur_id'];
 
   
     protected $validationRules      = [];

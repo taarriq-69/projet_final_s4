@@ -81,3 +81,39 @@
 * [x] Page pour transfert **(Zax)**
 * [x] Page pour retrait  **(Taarriq)**
 * [x] Page pour voir les historiques avec filtre **(Taarriq)**
+
+
+
+
+
+#  Version 2
+## Cote Operateur
+### Configuration des prefixes valables pour les autres operateurs (Taarriq)
+* [] PrefixeModel 
+    * [] CustomRules : assigner un  ou plusieur  prefixe pour chaque operateur
+
+### Configuration en % des transfers vers les autres operateurs (Taarriq)
+* [] base
+* [] fonction getConfigurationAutreOperateur()
+
+### Gain via les differents frais (Izaia)
+* [] Ajouter une nouvelle vue qui prend les gains par operateur
+* [] totalGainOperateur(id_operateur)
+
+### Situation des montants à envoyer à chaque opérateur (Izaia)
+* [] getTotalMontantAutreOperateur()
+
+## Cote client (Izaia)
+### Option inclure frais de retrait lors de l'envoie
+
+* [X] prendreFraisRetrait(valeur)
+* [X] Afficher l'option dans la vue 
+* [X] ajouter le frais de retrait a l'argent envoyer
+* [X] Désactiver l'option si le destinataire est un autre opérateur (pas de frais de retrait dans ce cas mais on inclu le commission en % du montant envoyer)
+
+
+### Envoi multiple vers plusieurs numéro (Izaia)
+* [X] ajouter plusieur champ de numero au transfert(dynamique)
+* [X] Vérifier que tous les numéros sont du même opérateur, sinon rejeter
+* [X] diviser le montant / nombre numero
+* [x] faire le transfert pour chaque numero : transfertMultiple(tableau[numero], montant )
