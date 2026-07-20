@@ -24,7 +24,6 @@ class ClientController extends BaseController
         if ($this->request->getMethod() === 'POST') {
             $numero = $this->request->getPost('numero');
 
-            // Validation
             $validation = \Config\Services::validation();
             $validation->setRule('numero', 'Numéro', 'valide_prefixe');
 
