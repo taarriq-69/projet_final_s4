@@ -1,10 +1,25 @@
 PRAGMA foreign_keys = ON;
 
+CREATE TABLE operateur
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    libelle VARCHAR(250) NOT NULL
+);
 
 CREATE TABLE prefixe
 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    prefixe INTEGER NOT NULL UNIQUE
+    prefixe INTEGER NOT NULL UNIQUE,
+    operateur INTEGER NOT NULL,
+    FOREIGN KEY (operateur) REFERENCES operateur(id)
+);
+
+CREATE TABLE frais_autre_operateur
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    operateur INTEGER NOT NULL,
+    frais DECIMAL(10,2),
+    FOREIGN KEY (operateur) REFERENCES operateur(id)
 );
 
 
@@ -99,11 +114,25 @@ LEFT JOIN type_operation o
 ON t.type_operation_id=o.id
 GROUP BY c.id;
 
-INSERT INTO prefixe(prefixe)
+INSERT INTO operateur(libelle)
 VALUES
-(33),
-(37),
-(38);
+('Notre operateur'),('Autre operateur');
+
+INSERT INTO prefixe(prefixe, operateur)
+VALUES
+(33, 1),
+(37, 1),
+(38, 1);
+
+INSERT INTO prefixe(prefixe, operateur)
+VALUES
+(32, 2),
+(34, 2),
+(31, 2);
+
+INSERT INTO frais_autre_operateur(operateur, frais)
+VALUES
+(2, 5.5);
 
 
 -- Types d'opérations
@@ -150,15 +179,6 @@ VALUES
 ('Andry Dupont',331234567,'2026-07-20'),
 ('Soa Ranaivo',372223344,'2026-07-20'),
 ('Mamy Razafy',383334455,'2026-07-20');
-
-
--- Comptes utilisateurs
-INSERT INTO login
-(client_id, username, password)
-VALUES
-(1,'jean','1234'),
-(2,'marie','1234'),
-(3,'andry','1234');
 
 INSERT INTO transactions
 (client_id, type_operation_id, valeur, frais, date_transaction)
