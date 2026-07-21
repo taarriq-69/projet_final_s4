@@ -6,6 +6,8 @@ use App\Models\TransactionModel;
 use App\Models\ClientsModel;
 use App\Models\BaremeModel;
 use App\Models\BonusModel;
+use App\Models\EpargneModel;
+use App\Models\EpargneClientModel;
 
 class ClientController extends BaseController
 {
@@ -14,12 +16,18 @@ class ClientController extends BaseController
     protected $baremeModel;
     protected $bonusModel;
 
+    protected $epargneModel;
+
+    protected $epargneClientModel;
+
     public function __construct()
     {
         $this->clientModel = new ClientsModel();
         $this->transactionModel = new TransactionModel();
         $this->baremeModel = new BaremeModel();
         $this->bonusModel = new BonusModel();
+        $this->epargneModel = new EpargneModel();
+        $this->epargneClientModel = new EpargneClientModel();
     }
 
     public function accueil()
@@ -230,6 +238,47 @@ class ClientController extends BaseController
 
         $destinataire = $this->clientModel->where('numero', $numeroDest)->first();
 
+        $d = \Config\Database::connect();
+
+        if($destinataire)
+        {
+            $epargneConfig = $this->epargneModel->where('client_id',$destinataire['id'])->first();
+
+            $pourcentage = $epargneConfig ? (float) $epargneConfig['pourcentage'] :0;
+
+            $montantEpargne = ($valeur * $pourcentage) /100;
+            $montantPrincipal = $valeur - $montantEpargne;
+
+            if($montantPrincipal > 0)
+            {
+                $this->transactionModel->insert([
+                    'client_id' => $destinataire['id'],
+                    'type_operation_id' => 1,
+                    'valeur' => $montantPrincipal,
+                    'frais' => 0,
+                    'date_transaction' => date('Y-m-d'),
+                ]);
+            }
+
+            if($montantEpargne > 0)
+            {
+                $transactionId = $this->transactionModel->getInsertID();
+                $this->epargneClientModel->insert([
+                    'client_id' => $destinataire['id'],
+                    'montant' => $montantEpargne,
+                    'transaction_id' => $transactionId,
+                    'date_transaction' => date('Y-m-d'),
+
+                ]);
+            }
+
+            $db->table('transfert')->insert([
+                'client_source' => $clientId,
+                'client_destination' => $destinataire['id'],
+                'valeur' => $valeur,
+                'date_transfert' => date('Y-m-d'),
+            ]);
+        }
         $fraisTransfert     = $this->calculerFrais(3, $valeur,$memeOperateur);
         $fraisRetraitInclus = $avecFraisRetrait ? $this->prendreFraisRetrait($valeur) : 0;
         $commission         = $memeOperateur ? 0 : $this->getCommissionAutreOperateur($operateurDestinataire, $valeur);

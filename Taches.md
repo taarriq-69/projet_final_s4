@@ -120,5 +120,11 @@
 
 
 ### Alea (Izaia)
-* [] Promotion pour le frais de transfert pour le meme operateur
-    * [] configuration du promotion en % 
+* [x] Promotion pour le frais de transfert pour le meme operateur
+    * [x] configuration du promotion en % 
+
+
+### Alea (Taarriq)
+* [] Epargne
+    * [] Client choisi son epargne (enregistrer en base par client)
+    * [] le pourcentage va en epargne

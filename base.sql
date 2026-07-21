@@ -244,3 +244,22 @@ CREATE TABLE bonus(
 );
 
 INSERT INTO bonus (pourcentage , actif) VALUES (10,1);
+
+CREATE TABLE epargne
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    epargne DECIMAL(10,2) NOT NULL DEFAULT 0,
+    client_id INTEGER NOT NULL,
+    FOREIGN KEY(client_id) REFERENCES clients(id)
+);
+
+CREATE TABLE epargne_client
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    client_id INTEGER NOT NULL,
+    montant DECIMAL(10,2) NOT NULL,
+    transaction_id INTEGER NOT NULL,
+    date_epargne DATE NOT NULL,
+    FOREIGN KEY(client_id) REFERENCES clients(id),
+    FOREIGN KEY(transaction_id) REFERENCES transactions(id)
+);

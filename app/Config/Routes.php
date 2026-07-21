@@ -29,3 +29,6 @@ $routes->get('/operateur/baremes/modifier/(:num)', 'BaremeController::modifier/$
 $routes->post('/operateur/baremes/modifier/(:num)', 'BaremeController::modifier/$1');
 $routes->post('/operateur/baremes/supprimer/(:num)', 'BaremeController::supprimer/$1');
 $routes->get('/solde', 'ClientController::voirSolde');
+
+$routes->get('/epargne/definir', 'EpargneController::definir');
+$routes->post('/epargne/definir', 'EpargneController::definir');
