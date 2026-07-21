@@ -29,7 +29,12 @@
             <label>Frais (Ar)</label>
             <input type="number" name="frais" value="<?= old('frais', $bareme['frais'] ?? '') ?>" required>
         </div>
-
+        <div class="field">
+            <label for="">
+                <input type="checkbox" name="meme_operateur" value="1">
+                <?= old('meme_operateur',$bareme['meme_operateur'] ?? 0) ? 'checked' : '' ?>
+            </label>
+        </div>
         <div style="display:flex; gap:10px;">
             <button type="submit" class="btn btn-primary">Enregistrer</button>
             <a href="/operateur/baremes" class="btn btn-ghost">Annuler</a>

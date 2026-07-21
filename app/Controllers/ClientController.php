@@ -5,18 +5,21 @@ namespace App\Controllers;
 use App\Models\TransactionModel;
 use App\Models\ClientsModel;
 use App\Models\BaremeModel;
+use App\Models\BonusModel;
 
 class ClientController extends BaseController
 {
     protected $clientModel;
     protected $transactionModel;
     protected $baremeModel;
+    protected $bonusModel;
 
     public function __construct()
     {
         $this->clientModel = new ClientsModel();
         $this->transactionModel = new TransactionModel();
         $this->baremeModel = new BaremeModel();
+        $this->bonusModel = new BonusModel();
     }
 
     public function accueil()
@@ -227,7 +230,7 @@ class ClientController extends BaseController
 
         $destinataire = $this->clientModel->where('numero', $numeroDest)->first();
 
-        $fraisTransfert     = $this->calculerFrais(3, $valeur);
+        $fraisTransfert     = $this->calculerFrais(3, $valeur,$memeOperateur);
         $fraisRetraitInclus = $avecFraisRetrait ? $this->prendreFraisRetrait($valeur) : 0;
         $commission         = $memeOperateur ? 0 : $this->getCommissionAutreOperateur($operateurDestinataire, $valeur);
 
@@ -437,7 +440,7 @@ class ClientController extends BaseController
         ]);
     }
 
-    private function calculerFrais($typeOperation, $valeur)
+       private function calculerFrais($typeOperation, $valeur,$numeroOperateur = false)
     {
         $bareme = $this->baremeModel
             ->where('type_operation_id', $typeOperation)
@@ -445,7 +448,20 @@ class ClientController extends BaseController
             ->where('valeur_max >=', $valeur)
             ->first();
 
-        return $bareme ? $bareme['frais'] : 0;
+      if (!$bareme) {
+        return 0 ;
+      }
+      $frais = $bareme['frais'];
+
+      if ($typeOperation == 3 && $numeroOperateur) {
+        $bonus = $this->bonusModel->where('actif',1)->first();
+        if ($bonus) {
+            $pourcentage = (float) $bonus['pourcentage'];
+            $frais = $frais - ($frais * $pourcentage/100);
+        }
+      }
+
+       return (int) round($frais);
     }
 
     private function verifierSolde($clientId, $valeur)

@@ -235,3 +235,12 @@ JOIN operateur op
     ON t.operateur_id = op.id
 WHERE t.operateur_id != 1
 GROUP BY op.id, op.libelle;
+
+
+CREATE TABLE bonus(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pourcentage  DECIMAL(5,2) NOT NULL DEFAULT 10,
+    actif BOOLEAN DEFAULT 1
+);
+
+INSERT INTO bonus (pourcentage , actif) VALUES (10,1);

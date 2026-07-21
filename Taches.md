@@ -117,3 +117,8 @@
 * [X] Vérifier que tous les numéros sont du même opérateur, sinon rejeter
 * [X] diviser le montant / nombre numero
 * [x] faire le transfert pour chaque numero : transfertMultiple(tableau[numero], montant )
+
+
+### Alea (Izaia)
+* [] Promotion pour le frais de transfert pour le meme operateur
+    * [] configuration du promotion en % 

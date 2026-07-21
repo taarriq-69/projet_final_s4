@@ -41,6 +41,7 @@ class BaremeController extends BaseController
                 'valeur_max'        => $this->request->getPost('valeur_max'),
                 'frais'             => $this->request->getPost('frais'),
                 'type_operation_id' => $this->request->getPost('type_operation_id'),
+                'meme_operateur'    => $this->request->getPost('meme_operateur') ? 1 : 0,
             ];
 
             if (!$this->baremeModel->save($data)) {
@@ -72,6 +73,8 @@ class BaremeController extends BaseController
                 'valeur_max'        => $this->request->getPost('valeur_max'),
                 'frais'             => $this->request->getPost('frais'),
                 'type_operation_id' => $this->request->getPost('type_operation_id'),
+                'meme_operateur'    => $this->request->getPost('meme_operateur') ? 1 : 0,
+
             ];
 
             if (!$this->baremeModel->save($data)) {
