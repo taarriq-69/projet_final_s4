@@ -272,7 +272,7 @@ class ClientController extends BaseController
                 ]);
             }
 
-            $db->table('transfert')->insert([
+            $this->table('transfert')->insert([
                 'client_source' => $clientId,
                 'client_destination' => $destinataire['id'],
                 'valeur' => $valeur,

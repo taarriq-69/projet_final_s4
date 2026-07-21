@@ -13,22 +13,27 @@ class EpargneController extends BaseController
         $this->epargneModel = new EpargneModel();
     }
 
-    public function definir(){
+    public function definir()
+    {
         $client_id = session()->get('client_id');
 
-        if(!$client_id){
+        if(!$client_id)
+        {
             return redirect()->to('/');
         }
 
-        if($this->request->getMethod() == 'POST'){
+        if($this->request->getMethod() == 'POST')
+        {
             $pourcentage = $this->request->getPost('pourcentage');
 
             $existing = $this->epargneModel->where('client_id' , $client_id)->first();
 
-            if($existing){
+            if($existing)
+            {
                 $this->epargneModel->update($existing['id'],['pourcentage' => $pourcentage,]);
             }
-            else{
+            else
+            {
                 $this->epargneModel->insert([
                     'client_id' => $client_id,
                     'pourcentage' => $pourcentage,
@@ -38,6 +43,6 @@ class EpargneController extends BaseController
         }
         $config = $this->epargneModel->where('client_id',$client_id)->first();
         
-        return view('clients/definir_epargne',['config' => $config]);_
+        return view('clients/definir_epargne',['config' => $config]);
     }
 }
